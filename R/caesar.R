@@ -8,7 +8,7 @@
 #' Move the original characters the right or to the left
 #' @param distance
 #' How far to move the characters in the direction you choose.
-#' @param reverse
+#' @param decrypt
 #' If TRUE, deciphers the coded text
 #'
 #' @return
@@ -20,14 +20,14 @@
 #' # https://en.wikipedia.org/wiki/Caesar_cipher
 #'
 #' caesar("cats are friends!")
-#' caesar("fdwv@duh@iulhqgv&", reverse = TRUE)
+#' caesar("fdwv@duh@iulhqgv&", decrypt = TRUE)
 #'
 #' caesar("cats are friends!", direction = "right", distance = 40)
-#' caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40, reverse = TRUE)
+#' caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40, decrypt = TRUE)
 #'
 #' caesar("cats are #1 friend!", direction = "left", distance = -12)
-#' caesar(", hgy f&ypy%f:&b@z", direction = "left", distance = -12, reverse = TRUE)
-caesar <- function(text, direction = "left", distance = 3, reverse = FALSE) {
+#' caesar(", hgy f&ypy%f:&b@z", direction = "left", distance = -12, decrypt = TRUE)
+caesar <- function(text, direction = "left", distance = 3, decrypt = FALSE) {
   if (!is.character(text)) {
     stop("text must be a string!")
   }
@@ -60,7 +60,7 @@ caesar <- function(text, direction = "left", distance = 3, reverse = FALSE) {
                                          cipher = c("#", "\n")))
 
 
-  if (!reverse) {
+  if (!decrypt) {
     text <- tolower(text)
     text <- gsub("[^[:alnum:][:space:]',!@&%-_:;]", "", text)
     text <- gsub("\\.", "", text)
@@ -81,6 +81,7 @@ caesar <- function(text, direction = "left", distance = 3, reverse = FALSE) {
   text <- gsub("\\\n", "\n#", text)
   text <- gsub("#+", "#", text)
   cat(text)
+  return(text)
 }
 
 #' Encrypt and Decrypt text using pseduorandom number generation
@@ -90,7 +91,7 @@ caesar <- function(text, direction = "left", distance = 3, reverse = FALSE) {
 #' @param seed
 #' A number to set the seed which will pseudorandomly rearrange
 #' the original characters
-#' @param reverse
+#' @param decrypt
 #' If TRUE, deciphers coded text
 #'
 #' @return
@@ -99,15 +100,15 @@ caesar <- function(text, direction = "left", distance = 3, reverse = FALSE) {
 #'
 #' @examples
 #' seed_cipher("cats are friends!")
-#' seed_cipher("bc204c5d495ud?:08", reverse = TRUE)
+#' seed_cipher("bc204c5d495ud?:08", decrypt = TRUE)
 #'
 #'
 #' seed_cipher("cats are friends!", seed = 2354)
-#' seed_cipher("li%1sid3szdp3 j1g", seed = 2354, reverse = TRUE)
+#' seed_cipher("li%1sid3szdp3 j1g", seed = 2354, decrypt = TRUE)
 #'
 #' seed_cipher("cats are #1 friend!", seed = -100)
-#' seed_cipher("hd2imdjpmfm-jcpe&q", seed = -100, reverse = TRUE)
-seed_cipher <- function(text, seed = 64, reverse = FALSE) {
+#' seed_cipher("hd2imdjpmfm-jcpe&q", seed = -100, decrypt = TRUE)
+seed_cipher <- function(text, seed = 64, decrypt = FALSE) {
   if (!is.character(text)) {
     stop("text must be a string!")
   }
@@ -129,7 +130,7 @@ seed_cipher <- function(text, seed = 64, reverse = FALSE) {
                                          cipher = c("#", "\n")))
 
 
-  if (!reverse) {
+  if (!decrypt) {
     text <- tolower(text)
     text <- gsub("[^[:alnum:][:space:]',!@&%-_:;]", "", text)
     text <- gsub("\\.", "", text)
@@ -151,4 +152,5 @@ seed_cipher <- function(text, seed = 64, reverse = FALSE) {
   text <- gsub("\\\n", "\n#", text)
   text <- gsub("#+", "#", text)
   cat(text)
+  return(text)
 }

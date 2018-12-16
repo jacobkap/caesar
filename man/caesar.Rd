@@ -4,7 +4,7 @@
 \alias{caesar}
 \title{Encrypt and Decrypt text using the Caesar cipher}
 \usage{
-caesar(text, direction = "left", distance = 3, reverse = FALSE)
+caesar(text, direction = "left", distance = 3, decrypt = FALSE)
 }
 \arguments{
 \item{text}{String to be ciphered or deciphered}
@@ -13,7 +13,7 @@ caesar(text, direction = "left", distance = 3, reverse = FALSE)
 
 \item{distance}{How far to move the characters in the direction you choose.}
 
-\item{reverse}{If TRUE, deciphers the coded text}
+\item{decrypt}{If TRUE, deciphers the coded text}
 }
 \value{
 String of the ciphered/deciphered text
@@ -26,12 +26,11 @@ Encrypt and Decrypt text using the Caesar cipher
 # https://en.wikipedia.org/wiki/Caesar_cipher
 
 caesar("cats are friends!")
-caesar("fdwv@duh@iulhqgv&", reverse = TRUE)
+caesar("fdwv@duh@iulhqgv&", decrypt = TRUE)
 
 caesar("cats are friends!", direction = "right", distance = 40)
-caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40, reverse = TRUE)
+caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40, decrypt = TRUE)
 
 caesar("cats are #1 friend!", direction = "left", distance = -12)
-caesar(", hgy f&ypy\%f:&b@z", direction = "left", distance = -12, reverse = TRUE)
+caesar(", hgy f&ypy\%f:&b@z", direction = "left", distance = -12, decrypt = TRUE)
 }
-

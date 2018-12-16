@@ -4,7 +4,7 @@
 \alias{seed_cipher}
 \title{Encrypt and Decrypt text using pseduorandom number generation}
 \usage{
-seed_cipher(text, seed = 64, reverse = FALSE)
+seed_cipher(text, seed = 64, decrypt = FALSE)
 }
 \arguments{
 \item{text}{String to be ciphered or deciphered}
@@ -12,7 +12,7 @@ seed_cipher(text, seed = 64, reverse = FALSE)
 \item{seed}{A number to set the seed which will pseudorandomly rearrange
 the original characters}
 
-\item{reverse}{If TRUE, deciphers coded text}
+\item{decrypt}{If TRUE, deciphers coded text}
 }
 \value{
 String of the ciphered/deciphered text
@@ -22,13 +22,12 @@ Encrypt and Decrypt text using pseduorandom number generation
 }
 \examples{
 seed_cipher("cats are friends!")
-seed_cipher("bc204c5d495ud?:08", reverse = TRUE)
+seed_cipher("bc204c5d495ud?:08", decrypt = TRUE)
 
 
 seed_cipher("cats are friends!", seed = 2354)
-seed_cipher("li\%1sid3szdp3 j1g", seed = 2354, reverse = TRUE)
+seed_cipher("li\%1sid3szdp3 j1g", seed = 2354, decrypt = TRUE)
 
 seed_cipher("cats are #1 friend!", seed = -100)
-seed_cipher("hd2imdjpmfm-jcpe&q", seed = -100, reverse = TRUE)
+seed_cipher("hd2imdjpmfm-jcpe&q", seed = -100, decrypt = TRUE)
 }
-

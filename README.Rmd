@@ -1,3 +1,6 @@
+---
+output: github_document
+---
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/caesar)](https://cran.r-project.org/package=caesar)
 [![AppVeyor Build
@@ -10,8 +13,7 @@ status](https://codecov.io/gh/jacobkap/caesar/branch/master/graph/badge.svg)](ht
 
 ## Overview
 
-The goal of caesar is to encrypt and decrypt strings using a simple
-Caesar cypher or a pseduorandom number generation.
+The goal of caesar is to encrypt and decrypt strings using a simple Caesar cypher or a pseduorandom number generation. 
 
 ## Installation
 
