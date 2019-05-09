@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Encrypt and Decrypt text using the Caesar cipher — caesar • caesar</title>
+<title>Encrypt and decrypt text using the Caesar cipher. — caesar • caesar</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Encrypt and Decrypt text using the Caesar cipher — caesar" />
+<meta property="og:title" content="Encrypt and decrypt text using the Caesar cipher. — caesar" />
 
-<meta property="og:description" content="Encrypt and Decrypt text using the Caesar cipher" />
+<meta property="og:description" content="Encrypt and decrypt text using the Caesar cipher." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -78,6 +78,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -99,37 +102,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Encrypt and Decrypt text using the Caesar cipher</h1>
+    <h1>Encrypt and decrypt text using the Caesar cipher.</h1>
     <small class="dont-index">Source: <a href='https://github.com/jacobkap/caesar/blob/master/R/caesar.R'><code>R/caesar.R</code></a></small>
     <div class="hidden name"><code>caesar.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Encrypt and Decrypt text using the Caesar cipher</p>
+    <p>Encrypt and decrypt text using the Caesar cipher.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>caesar</span>(<span class='no'>text</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"left"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>caesar</span>(<span class='no'>text</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>text</th>
-      <td><p>String to be ciphered or deciphered</p></td>
-    </tr>
-    <tr>
-      <th>direction</th>
-      <td><p>Move the original characters the right or to the left</p></td>
+      <td><p>String or vector of strings to be ciphered or deciphered.</p></td>
     </tr>
     <tr>
       <th>distance</th>
-      <td><p>How far to move the characters in the direction you choose.</p></td>
+      <td><p>A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.</p></td>
     </tr>
     <tr>
       <th>decrypt</th>
-      <td><p>If TRUE, deciphers the coded text</p></td>
+      <td><p>If TRUE, (not default) deciphers the coded text.</p></td>
     </tr>
     </table>
     
@@ -142,9 +141,10 @@
     <pre class="examples"><div class='input'><span class='co'># Please see this for more info.</span>
 <span class='co'># https://en.wikipedia.org/wiki/Caesar_cipher</span>
 
-<span class='fu'>caesar</span>(<span class='st'>"cats are friends!"</span>)</div><div class='output co'>#&gt; [1] "fdwvcduhciulhqgv$"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"fdwv@duh@iulhqgv&amp;"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "cats8are8friends$"</div><div class='input'>
-<span class='fu'>caesar</span>(<span class='st'>"cats are friends!"</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"right"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><div class='output co'>#&gt; <span class='error'>Error in caesar("cats are friends!", direction = "right", distance = 40): unused argument (direction = "right")</span></div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"ki10:izm:nzqmvl0;"</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"right"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40,     decrypt = TRUE): unused argument (direction = "right")</span></div><div class='input'>
-<span class='fu'>caesar</span>(<span class='st'>"cats are #1 friend!"</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"left"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>)</div><div class='output co'>#&gt; <span class='error'>Error in caesar("cats are #1 friend!", direction = "left", distance = -12): unused argument (direction = "left")</span></div><div class='input'><span class='fu'>caesar</span>(<span class='st'>", hgy f&amp;ypy%f:&amp;b@z"</span>, <span class='kw'>direction</span> <span class='kw'>=</span> <span class='st'>"left"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in caesar(", hgy f&amp;ypy%f:&amp;b@z", direction = "left", distance = -12,     decrypt = TRUE): unused argument (direction = "left")</span></div></pre>
+<span class='fu'>caesar</span>(<span class='st'>"Experience is the teacher of all things."</span>)</div><div class='output co'>#&gt; [1] "HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Experience is the teacher of all things."</div><div class='input'>
+<span class='fu'>caesar</span>(<span class='st'>"Veni, vidi, vici."</span>,  <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><div class='output co'>#&gt; [1] ",S1WKN9WRWKN9WQWL"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>",S1WKN9WRWKN9WQWL"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Veni, vidi, vici."</div><div class='input'>
+<span class='fu'>caesar</span>(<span class='st'>"No one is so brave that he is not disturbed by something unexpected."</span>, <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>)</div><div class='output co'>#&gt; [1] "Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</span>,
+       <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "No one is so brave that he is not disturbed by something unexpected."</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

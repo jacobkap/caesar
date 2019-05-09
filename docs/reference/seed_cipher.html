@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Encrypt and Decrypt text using pseduorandom number generation — seed_cipher • caesar</title>
+<title>Encrypt and decrypt text using pseduorandom number generation based on the seed set. — seed_cipher • caesar</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Encrypt and Decrypt text using pseduorandom number generation — seed_cipher" />
+<meta property="og:title" content="Encrypt and decrypt text using pseduorandom number generation based on the seed set. — seed_cipher" />
 
-<meta property="og:description" content="Encrypt and Decrypt text using pseduorandom number generation" />
+<meta property="og:description" content="Encrypt and decrypt text using pseduorandom number generation based on the seed set." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -78,6 +78,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -99,14 +102,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Encrypt and Decrypt text using pseduorandom number generation</h1>
+    <h1>Encrypt and decrypt text using pseduorandom number generation based on the seed set.</h1>
     <small class="dont-index">Source: <a href='https://github.com/jacobkap/caesar/blob/master/R/caesar.R'><code>R/caesar.R</code></a></small>
     <div class="hidden name"><code>seed_cipher.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Encrypt and Decrypt text using pseduorandom number generation</p>
+    <p>Encrypt and decrypt text using pseduorandom number generation based on the seed set.</p>
     
     </div>
 
@@ -121,7 +124,7 @@
     </tr>
     <tr>
       <th>seed</th>
-      <td><p>A number to set the seed which will pseudorandomly rearrange
+      <td><p>A single number to set the seed which will pseudorandomly rearrange
 the original characters</p></td>
     </tr>
     <tr>
@@ -136,10 +139,10 @@ the original characters</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"cats are friends!"</span>)</div><div class='output co'>#&gt; [1] " d/#Gd&lt;hG(&lt;QhX,#T"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"bc204c5d495ud?:08"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in `substr&lt;-`(`*tmp*`, i, i, value = .alphabet$original[index_num]): invalid value</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"As a rule, men worry more about what they can't see than about what they can."</span>)</div><div class='output co'>#&gt; [1] "R#GdG&lt;VfhbG$hXGeC&lt;&lt;oG$C&lt;hGd+CV/Ge0d/G/0hoG dXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"O8GdG@SfhEG9hUG*A@nG9A@hGd:AS_G*Wd_G_WhnG)dUg_G8hhG_WdUGd:AS_G*Wd_G_WhnG)dUx"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "${ a 3Ilek &lt;ez q}3D &lt;}3e a&gt;}I. qja. .jeD Xaz'. {ee .jaz a&gt;}I. qja. .jeD XazK"</div><div class='input'>
 
-<span class='fu'>seed_cipher</span>(<span class='st'>"cats are friends!"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>)</div><div class='output co'>#&gt; [1] "vq9^Hqj7HYjF7$s^n"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"li%1sid3szdp3 j1g"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "&gt;~qDd~v%d6v2%3rDB"</div><div class='input'>
-<span class='fu'>seed_cipher</span>(<span class='st'>"cats are #1 friend!"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>)</div><div class='output co'>#&gt; [1] "of*ucf{Dc:Gc'{eDk]U"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"hd2imdjpmfm-jcpe&amp;q"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "$jg.&lt;jX{&lt;a&lt;mX {i@B"</div></pre>
+<span class='fu'>seed_cipher</span>(<span class='st'>"Men willingly believe what they wish."</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>)</div><div class='output co'>#&gt; [1] ",7$HwF!!F$`!]H)7!F7d7Hw}q9H9}7]HwF^}B"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"q39l*D66D9;6.l%36D3d3l*&lt;p4l4&lt;3.l*D &lt;h"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "a%t&gt;$^{{^t+{(&gt;q%{^%v%&gt;$@2R&gt;R@%(&gt;$^3@W"</div><div class='input'>
+<span class='fu'>seed_cipher</span>(<span class='st'>"What we wish, we readily believe, and what we ourselves think, we imagine others think also."</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>)</div><div class='output co'>#&gt; [1] "FQf*c8Dc8euQ c8Dc{Df]e&gt;$cyD&gt;eD3D cfk]c8Qf*c8DcS%{uD&gt;3Duc*Qek= c8Dce-f2ekDcS*QD{uc*Qek=cf&gt;uSi"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"}Nf,&amp;3C&amp;3etN4&amp;3C&amp;vCf&gt;eB8&amp;xCBeC]C4&amp;fj&gt;&amp;3Nf,&amp;3C&amp;P9vtCB]Ct&amp;,Nej:4&amp;3C&amp;e-fZejC&amp;P,NCvt&amp;,Nej:&amp;fBtP "</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "O3aD@v^@vix3Z@v^@M^aliQw@p^Qi^d^Z@aXl@v3aD@v^@KLMx^Qd^x@D3iX#Z@v^@ima)iX^@KD3^Mx@D3iX#@aQxK,"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
