@@ -99,7 +99,10 @@ seed_cipher <- function(text,
 
   text <- gsub('\\"', "\\'", text)
 
-  base::set.seed(seed, kind = "Mersenne-Twister", normal.kind = "Inversion")
+  # Sets the R version so seed always the same regardless of
+  # version user is using.
+  RNGversion("3.5.3")
+  base::set.seed(seed)
   .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
                                                 nrow(.alphabet),
                                                 replace = FALSE)]
