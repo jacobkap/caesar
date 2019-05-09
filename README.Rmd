@@ -36,14 +36,14 @@ library(caesar)
 
 There are two functions in this package:
 
-* `caesar()` uses a traditional Caesar cipher to encrypt or decrpyt text.)    
+* `caesar()` uses a traditional Caesar cipher to encrypt or decrypt text.)    
 * `seed_cipher()` encrypts or decrypts text based on a specific seed.
 
-For both functions the only required parameter is `text` which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encryped (or decrypted). 
+For both functions the only required parameter is `text` which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encrypted (or decrypted). 
 
 # caesar()
 
-The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctation but the concept is the same.  
+The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctuation but the concept is the same.  
 
 ```{r echo=TRUE}
  caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.")

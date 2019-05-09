@@ -99,7 +99,7 @@ seed_cipher <- function(text,
 
   text <- gsub('\\"', "\\'", text)
 
-  base::set.seed(seed)
+  base::set.seed(seed, kind = "Mersenne-Twister")
   .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
                                                 nrow(.alphabet),
                                                 replace = FALSE)]
