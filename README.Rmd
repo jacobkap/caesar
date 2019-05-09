@@ -9,7 +9,8 @@ Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/caesar?branc
 Status](https://travis-ci.org/jacobkap/caesar.svg?branch=master)](https://travis-ci.org/jacobkap/caesar)
 [![Coverage
 status](https://codecov.io/gh/jacobkap/caesar/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/caesar?branch=master)
-[![](https://cranlogs.r-pkg.org/badges/caesar)](https://cran.rstudio.com/web/packages/caesar/index.html)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/caesar?color=blue)](https://cran.r-project.org/package=caesar)
+
 
 ## Overview
 

@@ -2,7 +2,7 @@ Package: caesar
 Type: Package
 Title: Encrypts and Decrypts Strings
 Version: 0.1.0
-Authors@R: person("Jacob", "Kaplan", email = "jacobkap@sas.upenn.edu", role = c("aut", "cre"))
+Authors@R: person("Jacob", "Kaplan", email = "jkkaplan6@gmail.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0601-0387"))
 Description: Encrypts and decrypts strings using either the Caesar cipher or a
     pseudorandom number generation (using set.seed()) method.
 Depends: 
@@ -13,6 +13,6 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/jacobkap/caesar
 BugReports: https://github.com/jacobkap/caesar/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests: testthat,
     covr

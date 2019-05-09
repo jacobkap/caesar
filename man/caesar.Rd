@@ -2,35 +2,34 @@
 % Please edit documentation in R/caesar.R
 \name{caesar}
 \alias{caesar}
-\title{Encrypt and Decrypt text using the Caesar cipher}
+\title{Encrypt and decrypt text using the Caesar cipher.}
 \usage{
-caesar(text, direction = "left", distance = 3, decrypt = FALSE)
+caesar(text, distance = 3, decrypt = FALSE)
 }
 \arguments{
-\item{text}{String to be ciphered or deciphered}
+\item{text}{String or vector of strings to be ciphered or deciphered.}
 
-\item{direction}{Move the original characters the right or to the left}
+\item{distance}{A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.}
 
-\item{distance}{How far to move the characters in the direction you choose.}
-
-\item{decrypt}{If TRUE, deciphers the coded text}
+\item{decrypt}{If TRUE, (not default) deciphers the coded text.}
 }
 \value{
 String of the ciphered/deciphered text
 }
 \description{
-Encrypt and Decrypt text using the Caesar cipher
+Encrypt and decrypt text using the Caesar cipher.
 }
 \examples{
 # Please see this for more info.
 # https://en.wikipedia.org/wiki/Caesar_cipher
 
-caesar("cats are friends!")
-caesar("fdwv@duh@iulhqgv&", decrypt = TRUE)
+caesar("Experience is the teacher of all things.")
+caesar("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva", decrypt = TRUE)
 
-caesar("cats are friends!", direction = "right", distance = 40)
-caesar("ki10:izm:nzqmvl0;", direction = "right", distance = 40, decrypt = TRUE)
+caesar("Veni, vidi, vici.",  distance = 40)
+caesar(",S1WKN9WRWKN9WQWL", distance = 40, decrypt = TRUE)
 
-caesar("cats are #1 friend!", direction = "left", distance = -12)
-caesar(", hgy f&ypy\%f:&b@z", direction = "left", distance = -12, decrypt = TRUE)
+caesar("No one is so brave that he is not disturbed by something unexpected.", distance = -12)
+caesar("Bc[cb:[,g[gc[{f]j:[h>]h[>:[,g[bch[;,ghif{:;[{m[gca:h>,b<[ib:ld:}h:;`",
+       distance = -12, decrypt = TRUE)
 }
