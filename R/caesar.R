@@ -44,19 +44,9 @@ caesar <- function(text, distance = 3, decrypt = FALSE) {
   distance <- distance %% length(.alphabet$original)
   .alphabet$number <- 1:nrow(.alphabet)
   .alphabet$cipher <- binhf::shift(.alphabet$original,
-                                  places = -distance)
+                                   places = -distance)
 
-  if (decrypt == FALSE) {
-    for (i in 1:nchar(text)) {
-      index_num <- which(substr(text, i, i) == .alphabet$original)
-      substr(text, i, i) <- .alphabet$cipher[index_num]
-    }
-  } else {
-    for (i in 1:nchar(text)) {
-      index_num <- which(substr(text, i, i) == .alphabet$cipher)
-      substr(text, i, i) <- .alphabet$original[index_num]
-    }
-  }
+  text <- encrypt_decrypt(text, .alphabet, decrypt)
   return(text)
 }
 
@@ -93,29 +83,20 @@ seed_cipher <- function(text, seed = 64, decrypt = FALSE) {
     stop("seed must be a single number!")
   }
 
-
   if (!is.numeric(seed)) {
     stop("seed must be a number!")
   }
+
   text <- gsub('\\"', "\\'", text)
 
   set.seed(seed)
   .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
-                                              nrow(.alphabet),
-                                              replace = FALSE)]
+                                                nrow(.alphabet),
+                                                replace = FALSE)]
 
 
-  if (!decrypt) {
-    for (i in 1:nchar(text)) {
-      index_num <- which(substr(text, i, i) == .alphabet$original)
-      substr(text, i, i) <- .alphabet$cipher[index_num]
-    }
-  } else {
-    for (i in 1:nchar(text)) {
-      index_num <- which(substr(text, i, i) == .alphabet$cipher)
-      substr(text, i, i) <- .alphabet$original[index_num]
-    }
-  }
-
+  text <- encrypt_decrypt(text, .alphabet, decrypt)
   return(text)
 }
+
+
