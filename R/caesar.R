@@ -101,7 +101,7 @@ seed_cipher <- function(text,
 
   # Sets the R version so seed always the same regardless of
   # version user is using.
-  RNGversion("3.5.3")
+  suppressWarnings(base::RNGversion("3.5.3"))
   base::set.seed(seed)
   .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
                                                 nrow(.alphabet),
