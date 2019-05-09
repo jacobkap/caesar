@@ -1,7 +1,7 @@
 Package: caesar
 Type: Package
 Title: Encrypts and Decrypts Strings
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: person("Jacob", "Kaplan", email = "jkkaplan6@gmail.edu", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0601-0387"))
 Description: Encrypts and decrypts strings using either the Caesar cipher or a
