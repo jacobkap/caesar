@@ -7,7 +7,7 @@
 caesar(text, shift = 3, decrypt = FALSE)
 }
 \arguments{
-\item{text}{String or vector of strings to be ciphered or deciphered.}
+\item{text}{String to be ciphered or deciphered.}
 
 \item{shift}{A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.}
 

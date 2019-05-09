@@ -7,7 +7,7 @@
 seed_cipher(text, seed = 64, decrypt = FALSE)
 }
 \arguments{
-\item{text}{String or vector of strings to be ciphered or deciphered.}
+\item{text}{String to be ciphered or deciphered.}
 
 \item{seed}{A single number to set the seed which will pseudorandomly rearrange
 the original characters}

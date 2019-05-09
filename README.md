@@ -34,12 +34,15 @@ library(caesar)
 There are two functions in this package:
 
   - `caesar()` uses a traditional Caesar cipher to encrypt or decrypt
-    text.)  
+    text.  
   - `seed_cipher()` encrypts or decrypts text based on a specific seed.
 
 For both functions the only required parameter is `text` which is a
 string or vector of string that you want to encrypt/decrypt. The
 functions will output a string with the text encrypted (or decrypted).
+If you do decide to change the default value of the `shift` parameter
+(`seed` in `seed_cipher()`), which you should to make it secure, make
+sure not to forget the value you set.
 
 # caesar()
 
@@ -57,8 +60,10 @@ same.
     ## [1] "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"
 
 You can set the shift yourself as one of the optional parameters. This
-can be any whole number (positive or
-negative).
+can be any whole number (positive or negative). If you do decide to
+change the default value of the `shift` parameter (which you should to
+make it secure), make sure not to forget the value you
+set.
 
 ``` r
  caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.", 
@@ -90,6 +95,10 @@ encrypted.
 
 # seed\_cipher()
 
+This method randomizes the alphabet based on a seed you set, making it
+far more secure than the Caesar
+cipher.
+
 ``` r
  caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.")
 ```
@@ -97,8 +106,10 @@ encrypted.
     ## [1] "R#GdG<VfhbG$hXGeC<<oG$C<hGd+CV/Ge0d/G/0hoG dXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"
 
 You can set the seed yourself as one of the optional parameters. This
-can be any whole number (positive or
-negative).
+can be any whole number (positive or negative). If you do decide to
+change the default value of the `seed` parameter (which you should to
+make it secure), make sure not to forget the value you
+set.
 
 ``` r
  caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.", 
@@ -111,19 +122,19 @@ To decrypt the text change the parameter `decrypt` to
 TRUE.
 
 ``` r
- caesar::seed_cipher(text = "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa",
+ caesar::seed_cipher(text = "R#GdG<VfhbG$hXGeC<<oG$C<hGd+CV/Ge0d/G/0hoGdXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_",
         decrypt = TRUE)
 ```
 
-    ## [1] "WH/a/~Kyec/7e&/1@~~V/7@~e/aw@K6/1Ma6/6MeV/la&d6/Hee/6Ma&/aw@K6/1Ma6/6MeV/la&E"
+    ## [1] "As a rule, men worry more about what they an't see than about what they can."
 
 Make sure the seed value is the same as it was when
 encrypted.
 
 ``` r
- caesar::seed_cipher(text = "rj};}ilc>[}d>e}nfiip}dfi>};:flk}n/;k}k/>p}';e=k}j>>}k/;e};:flk}n/;k}k/>p}';e]", 
+ caesar::seed_cipher(text = "Eucfc{%>Dc-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki", 
         seed = -100, 
         decrypt = TRUE)
 ```
 
-    ## [1] "5XO`O.C l8OjliO[a..{Oja.lO`#aCnO[I`nOnIl{Of`iknOXllOnI`iO`#aCnO[I`nOnIl{Of`id"
+    ## [1] "As a rule men worry more about what they can't see than about what they can."

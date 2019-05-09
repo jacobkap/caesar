@@ -108,20 +108,20 @@
 <p>There are two functions in this package:</p>
 <ul>
 <li>
-<code><a href="reference/caesar.html">caesar()</a></code> uses a traditional Caesar cipher to encrypt or decrpyt text.)<br>
+<code><a href="reference/caesar.html">caesar()</a></code> uses a traditional Caesar cipher to encrypt or decrypt text.<br>
 </li>
 <li>
 <code><a href="reference/seed_cipher.html">seed_cipher()</a></code> encrypts or decrypts text based on a specific seed.</li>
 </ul>
-<p>For both functions the only required parameter is <code>text</code> which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encryped (or decrypted).</p>
+<p>For both functions the only required parameter is <code>text</code> which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encrypted (or decrypted). If you do decide to change the default value of the <code>shift</code> parameter (<code>seed</code> in <code><a href="reference/seed_cipher.html">seed_cipher()</a></code>), which you should to make it secure, make sure not to forget the value you set.</p>
 </div>
 <div id="caesar" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#caesar" class="anchor"></a>caesar()</h1></div>
-<p>The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctation but the concept is the same.</p>
+<p>The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctuation but the concept is the same.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>)</a></code></pre></div>
 <pre><code>## [1] "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"</code></pre>
-<p>You can set the shift yourself as one of the optional parameters. This can be any whole number (positive or negative).</p>
+<p>You can set the shift yourself as one of the optional parameters. This can be any whole number (positive or negative). If you do decide to change the default value of the <code>shift</code> parameter (which you should to make it secure), make sure not to forget the value you set.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>, </a>
 <a class="sourceLine" id="cb5-2" title="2">        <span class="dt">shift =</span> <span class="dv">-100</span>)</a></code></pre></div>
 <pre><code>## [1] "rj};}ilc&gt;[}d&gt;e}nfiip}dfi&gt;};:flk}n/;k}k/&gt;p}';e=k}j&gt;&gt;}k/;e};:flk}n/;k}k/&gt;p}';e]"</code></pre>
@@ -138,21 +138,22 @@
 <div id="seed_cipher" class="section level1">
 <h1 class="hasAnchor">
 <a href="#seed_cipher" class="anchor"></a>seed_cipher()</h1>
+<p>This method randomizes the alphabet based on a seed you set, making it far more secure than the Caesar cipher.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>)</a></code></pre></div>
 <pre><code>## [1] "R#GdG&lt;VfhbG$hXGeC&lt;&lt;oG$C&lt;hGd+CV/Ge0d/G/0hoG dXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"</code></pre>
-<p>You can set the seed yourself as one of the optional parameters. This can be any whole number (positive or negative).</p>
+<p>You can set the seed yourself as one of the optional parameters. This can be any whole number (positive or negative). If you do decide to change the default value of the <code>seed</code> parameter (which you should to make it secure), make sure not to forget the value you set.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>, </a>
 <a class="sourceLine" id="cb13-2" title="2">        <span class="dt">seed =</span> <span class="dv">-100</span>)</a></code></pre></div>
 <pre><code>## [1] "Eucfc{%&gt;D c-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki"</code></pre>
 <p>To decrypt the text change the parameter <code>decrypt</code> to TRUE.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"</span>,</a>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"R#GdG&lt;VfhbG$hXGeC&lt;&lt;oG$C&lt;hGd+CV/Ge0d/G/0hoGdXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"</span>,</a>
 <a class="sourceLine" id="cb15-2" title="2">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## [1] "WH/a/~Kyec/7e&amp;/1@~~V/7@~e/aw@K6/1Ma6/6MeV/la&amp;d6/Hee/6Ma&amp;/aw@K6/1Ma6/6MeV/la&amp;E"</code></pre>
+<pre><code>## [1] "As a rule, men worry more about what they an't see than about what they can."</code></pre>
 <p>Make sure the seed value is the same as it was when encrypted.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"rj};}ilc&gt;[}d&gt;e}nfiip}dfi&gt;};:flk}n/;k}k/&gt;p}';e=k}j&gt;&gt;}k/;e};:flk}n/;k}k/&gt;p}';e]"</span>, </a>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"Eucfc{%&gt;Dc-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki"</span>, </a>
 <a class="sourceLine" id="cb17-2" title="2">        <span class="dt">seed =</span> <span class="dv">-100</span>, </a>
 <a class="sourceLine" id="cb17-3" title="3">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## [1] "5XO`O.C l8OjliO[a..{Oja.lO`#aCnO[I`nOnIl{Of`iknOXllOnI`iO`#aCnO[I`nOnIl{Of`id"</code></pre>
+<pre><code>## [1] "As a rule men worry more about what they can't see than about what they can."</code></pre>
 </div>
   </div>
 

@@ -2,7 +2,7 @@
 #' Encrypt and decrypt text using the Caesar cipher.
 #'
 #' @param text
-#' String or vector of strings to be ciphered or deciphered.
+#' String to be ciphered or deciphered.
 #' @param shift
 #' A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.
 #' @param decrypt
@@ -28,8 +28,8 @@
 caesar <- function(text,
                    shift = 3,
                    decrypt = FALSE) {
-  if (!is.character(text)) {
-    stop("text must be a string!")
+  if (!is.character(text) || length(text) != 1) {
+    stop("text must be a single string!")
   }
 
   if (length(shift) != 1) {
@@ -55,7 +55,7 @@ caesar <- function(text,
 #' Encrypt and decrypt text using pseudorandom number generation based on the seed set.
 #'
 #' @param text
-#' String or vector of strings to be ciphered or deciphered.
+#' String to be ciphered or deciphered.
 #' @param seed
 #' A single number to set the seed which will pseudorandomly rearrange
 #' the original characters
@@ -85,8 +85,8 @@ caesar <- function(text,
 seed_cipher <- function(text,
                         seed = 64,
                         decrypt = FALSE) {
-  if (!is.character(text)) {
-    stop("text must be a string!")
+  if (!is.character(text) || length(text) != 1) {
+    stop("text must be a single string!")
   }
 
   if (length(seed) != 1) {
