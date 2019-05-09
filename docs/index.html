@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">caesar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -45,6 +45,18 @@
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Encrypting-and-decrypting-text.html">Encrypting and decrypting text</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -76,7 +88,7 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>The goal of caesar is to encrypt and decrypt strings using a simple Caesar cypher or a pseduorandom number generation.</p>
+<p>The goal of caesar is to encrypt and decrypt strings using a simple Caesar cipher or a pseudorandom number generation.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -88,6 +100,59 @@
 <a class="sourceLine" id="cb1-5" title="5"><span class="co"># The development version is available on Github.</span></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb1-7" title="7">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"jacobkap/caesar"</span>)</a></code></pre></div>
+</div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(caesar)</a></code></pre></div>
+<p>There are two functions in this package:</p>
+<ul>
+<li>
+<code><a href="reference/caesar.html">caesar()</a></code> uses a traditional Caesar cipher to encrypt or decrpyt text.)<br>
+</li>
+<li>
+<code><a href="reference/seed_cipher.html">seed_cipher()</a></code> encrypts or decrypts text based on a specific seed.</li>
+</ul>
+<p>For both functions the only required parameter is <code>text</code> which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encryped (or decrypted).</p>
+</div>
+<div id="caesar" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#caesar" class="anchor"></a>caesar()</h1></div>
+<p>The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctation but the concept is the same.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>)</a></code></pre></div>
+<pre><code>## [1] "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"</code></pre>
+<p>You can set the shift yourself as one of the optional parameters. This can be any whole number (positive or negative).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>, </a>
+<a class="sourceLine" id="cb5-2" title="2">        <span class="dt">shift =</span> <span class="dv">-100</span>)</a></code></pre></div>
+<pre><code>## [1] "rj};}ilc&gt;[}d&gt;e}nfiip}dfi&gt;};:flk}n/;k}k/&gt;p}';e=k}j&gt;&gt;}k/;e};:flk}n/;k}k/&gt;p}';e]"</code></pre>
+<p>To decrypt the text change the parameter <code>decrypt</code> to TRUE.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"</span>,</a>
+<a class="sourceLine" id="cb7-2" title="2">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] "As a rule, men worry more about what they can't see than about what they can."</code></pre>
+<p>Make sure the shift value is the same as it was when encrypted.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/caesar">caesar</a></span>(<span class="dt">text =</span> <span class="st">"rj};}ilc&gt;[}d&gt;e}nfiip}dfi&gt;};:flk}n/;k}k/&gt;p}';e=k}j&gt;&gt;}k/;e};:flk}n/;k}k/&gt;p}';e]"</span>, </a>
+<a class="sourceLine" id="cb9-2" title="2">        <span class="dt">shift =</span> <span class="dv">-100</span>, </a>
+<a class="sourceLine" id="cb9-3" title="3">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] "As a rule, men worry more about what they can't see than about what they can."</code></pre>
+</div>
+<div id="seed_cipher" class="section level1">
+<h1 class="hasAnchor">
+<a href="#seed_cipher" class="anchor"></a>seed_cipher()</h1>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>)</a></code></pre></div>
+<pre><code>## [1] "R#GdG&lt;VfhbG$hXGeC&lt;&lt;oG$C&lt;hGd+CV/Ge0d/G/0hoG dXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"</code></pre>
+<p>You can set the seed yourself as one of the optional parameters. This can be any whole number (positive or negative).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"As a rule, men worry more about what they can't see than about what they can."</span>, </a>
+<a class="sourceLine" id="cb13-2" title="2">        <span class="dt">seed =</span> <span class="dv">-100</span>)</a></code></pre></div>
+<pre><code>## [1] "Eucfc{%&gt;D c-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki"</code></pre>
+<p>To decrypt the text change the parameter <code>decrypt</code> to TRUE.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa"</span>,</a>
+<a class="sourceLine" id="cb15-2" title="2">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] "WH/a/~Kyec/7e&amp;/1@~~V/7@~e/aw@K6/1Ma6/6MeV/la&amp;d6/Hee/6Ma&amp;/aw@K6/1Ma6/6MeV/la&amp;E"</code></pre>
+<p>Make sure the seed value is the same as it was when encrypted.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"> caesar<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/caesar/topics/seed_cipher">seed_cipher</a></span>(<span class="dt">text =</span> <span class="st">"rj};}ilc&gt;[}d&gt;e}nfiip}dfi&gt;};:flk}n/;k}k/&gt;p}';e=k}j&gt;&gt;}k/;e};:flk}n/;k}k/&gt;p}';e]"</span>, </a>
+<a class="sourceLine" id="cb17-2" title="2">        <span class="dt">seed =</span> <span class="dv">-100</span>, </a>
+<a class="sourceLine" id="cb17-3" title="3">        <span class="dt">decrypt =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] "5XO`O.C l8OjliO[a..{Oja.lO`#aCnO[I`nOnIl{Of`iknOXllOnI`iO`#aCnO[I`nOnIl{Of`id"</code></pre>
 </div>
   </div>
 
@@ -106,7 +171,8 @@
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>GPL</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 <div class="developers">

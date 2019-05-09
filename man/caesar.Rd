@@ -4,12 +4,12 @@
 \alias{caesar}
 \title{Encrypt and decrypt text using the Caesar cipher.}
 \usage{
-caesar(text, distance = 3, decrypt = FALSE)
+caesar(text, shift = 3, decrypt = FALSE)
 }
 \arguments{
 \item{text}{String or vector of strings to be ciphered or deciphered.}
 
-\item{distance}{A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.}
+\item{shift}{A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.}
 
 \item{decrypt}{If TRUE, (not default) deciphers the coded text.}
 }
@@ -26,10 +26,10 @@ Encrypt and decrypt text using the Caesar cipher.
 caesar("Experience is the teacher of all things.")
 caesar("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva", decrypt = TRUE)
 
-caesar("Veni, vidi, vici.",  distance = 40)
-caesar(",S1WKN9WRWKN9WQWL", distance = 40, decrypt = TRUE)
+caesar("Veni, vidi, vici.",  shift = 40)
+caesar(",S1WKN9WRWKN9WQWL", shift = 40, decrypt = TRUE)
 
-caesar("No one is so brave that he is not disturbed by something unexpected.", distance = -12)
+caesar("No one is so brave that he is not disturbed by something unexpected.", shift = -12)
 caesar("Bc[cb:[,g[gc[{f]j:[h>]h[>:[,g[bch[;,ghif{:;[{m[gca:h>,b<[ib:ld:}h:;`",
-       distance = -12, decrypt = TRUE)
+       shift = -12, decrypt = TRUE)
 }

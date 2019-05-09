@@ -2,15 +2,15 @@ context("test-errors-silent-stop")
 
 test_that("returns silent", {
   expect_silent(caesar("Experience is the teacher of all things.",
-                      distance = 3))
+                      shift = 3))
   expect_silent(caesar("Experience is the teacher of all things.",
-                      distance = 0))
+                      shift = 0))
 
   expect_silent(caesar("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva",
-                      distance = 3,
+                      shift = 3,
                       decrypt = TRUE))
   expect_silent(caesar("Experience is the teacher of all things.",
-                      distance = 0,
+                      shift = 0,
                       decrypt = TRUE))
 
 
@@ -18,95 +18,95 @@ test_that("returns silent", {
 
 
 test_that("caesar - returns errors", {
-  # Distance isn't a single number
+  # shift isn't a single number
   expect_error(caesar("Experience is the teacher of all things.",
-                       distance = "2"),
-               "distance must be a number!")
+                       shift = "2"),
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                       distance = c("cat", "cat")),
-               "distance must be a single number!")
+                       shift = c("cat", "cat")),
+               "shift must be a single number!")
   expect_error(caesar("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva",
-                       distance = 1:3,
+                       shift = 1:3,
                        decrypt = TRUE),
-               "distance must be a single number!")
+               "shift must be a single number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                       distance = c(1:5, 7),
+                       shift = c(1:5, 7),
                        decrypt = TRUE),
-               "distance must be a single number!")
+               "shift must be a single number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = c(1:5, 7, "cat"),
+                      shift = c(1:5, 7, "cat"),
                       decrypt = TRUE),
-               "distance must be a single number!")
+               "shift must be a single number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = as.Date("2011-01-22"),
+                      shift = as.Date("2011-01-22"),
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = mtcars,
+                      shift = mtcars,
                       decrypt = TRUE),
-               "distance must be a single number!")
+               "shift must be a single number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = as.factor(2),
+                      shift = as.factor(2),
                       decrypt = TRUE))
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = as.character(2),
+                      shift = as.character(2),
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = as.data.frame(2),
+                      shift = as.data.frame(2),
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = TRUE,
+                      shift = TRUE,
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = FALSE,
+                      shift = FALSE,
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = NULL,
+                      shift = NULL,
                       decrypt = TRUE),
-               "distance must be a single number!")
+               "shift must be a single number!")
   expect_error(caesar("Experience is the teacher of all things.",
-                      distance = NA,
+                      shift = NA,
                       decrypt = TRUE),
-               "distance must be a number!")
+               "shift must be a number!")
 
 
 
-  # Distance isn't a string
+  # shift isn't a string
   expect_error(caesar(2,
-                      distance = 2),
+                      shift = 2),
                "text must be a string!")
   expect_error(caesar(as.Date("2011-01-22"),
-                      distance = 2),
+                      shift = 2),
                "text must be a string!")
   expect_error(caesar(mtcars,
-                      distance = 2,
+                      shift = 2,
                       decrypt = TRUE),
                "text must be a string!")
   expect_error(caesar(as.factor(letters),
-                      distance = 2,
+                      shift = 2,
                       decrypt = TRUE),
                "text must be a string!")
   expect_error(caesar(2:10,
-                      distance = 2,
+                      shift = 2,
                       decrypt = TRUE),
                "text must be a string!")
 
   expect_error(caesar(TRUE,
-                      distance = 2),
+                      shift = 2),
                "text must be a string!")
   expect_error(caesar(FALSE,
-                      distance = 2),
+                      shift = 2),
                "text must be a string!")
   expect_error(caesar(NULL,
-                      distance = 2,
+                      shift = 2,
                       decrypt = TRUE),
                "text must be a string!")
   expect_error(caesar(NA,
-                      distance = 2,
+                      shift = 2,
                       decrypt = TRUE),
                "text must be a string!")
 

@@ -14,7 +14,7 @@ status](https://codecov.io/gh/jacobkap/caesar/branch/master/graph/badge.svg)](ht
 
 ## Overview
 
-The goal of caesar is to encrypt and decrypt strings using a simple Caesar cypher or a pseduorandom number generation. 
+The goal of caesar is to encrypt and decrypt strings using a simple Caesar cipher or a pseudorandom number generation. 
 
 ## Installation
 
@@ -26,4 +26,78 @@ install.packages("caesar")
 # The development version is available on Github.
 # install.packages("devtools")
 devtools::install_github("jacobkap/caesar")
+```
+
+## Usage
+
+```{r}
+library(caesar)
+```
+
+There are two functions in this package:
+
+* `caesar()` uses a traditional Caesar cipher to encrypt or decrpyt text.)    
+* `seed_cipher()` encrypts or decrypts text based on a specific seed.
+
+For both functions the only required parameter is `text` which is a string or vector of string that you want to encrypt/decrypt. The functions will output a string with the text encryped (or decrypted). 
+
+# caesar()
+
+The Caesar cipher is an ancient cipher which is made by shifting the letters of the alphabet by a set number. So a shift of -3, for example, would move each letter to the left by 3, such that A would become X and D would become A. For this package it also includes numbers and punctation but the concept is the same.  
+
+```{r echo=TRUE}
+ caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.")
+```
+
+You can set the shift yourself as one of the optional parameters. This can be any whole number (positive or negative). 
+
+```{r echo=TRUE}
+ caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.", 
+        shift = -100)
+```
+
+To decrypt the text change the parameter `decrypt` to TRUE.  
+
+```{r echo=TRUE}
+ caesar::caesar(text = "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa",
+        decrypt = TRUE)
+```
+
+Make sure the shift value is the same as it was when encrypted.
+
+```{r echo=TRUE}
+ caesar::caesar(text = "rj};}ilc>[}d>e}nfiip}dfi>};:flk}n/;k}k/>p}';e=k}j>>}k/;e};:flk}n/;k}k/>p}';e]", 
+        shift = -100, 
+        decrypt = TRUE)
+```
+
+
+
+# seed_cipher()
+
+
+```{r echo=TRUE}
+ caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.")
+```
+
+You can set the seed yourself as one of the optional parameters. This can be any whole number (positive or negative). 
+
+```{r echo=TRUE}
+ caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.", 
+        seed = -100)
+```
+
+To decrypt the text change the parameter `decrypt` to TRUE.  
+
+```{r echo=TRUE}
+ caesar::seed_cipher(text = "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa",
+        decrypt = TRUE)
+```
+
+Make sure the seed value is the same as it was when encrypted.
+
+```{r echo=TRUE}
+ caesar::seed_cipher(text = "rj};}ilc>[}d>e}nfiip}dfi>};:flk}n/;k}k/>p}';e=k}j>>}k/;e};:flk}n/;k}k/>p}';e]", 
+        seed = -100, 
+        decrypt = TRUE)
 ```

@@ -6,10 +6,9 @@ Authors@R: person("Jacob", "Kaplan", email = "jkkaplan6@gmail.edu",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0601-0387"))
 Description: Encrypts and decrypts strings using either the Caesar cipher or a
     pseudorandom number generation (using set.seed()) method.
-Depends: 
 Imports:
     binhf
-License: GPL
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/jacobkap/caesar
@@ -17,4 +16,9 @@ BugReports: https://github.com/jacobkap/caesar/issues
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown,
+    spelling
+VignetteBuilder: knitr
+Language: en-US

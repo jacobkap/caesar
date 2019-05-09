@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">caesar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -77,6 +77,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Encrypting-and-decrypting-text.html">Encrypting and decrypting text</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -113,7 +125,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>caesar</span>(<span class='no'>text</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>caesar</span>(<span class='no'>text</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,7 +135,7 @@
       <td><p>String or vector of strings to be ciphered or deciphered.</p></td>
     </tr>
     <tr>
-      <th>distance</th>
+      <th>shift</th>
       <td><p>A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.</p></td>
     </tr>
     <tr>
@@ -142,9 +154,9 @@
 <span class='co'># https://en.wikipedia.org/wiki/Caesar_cipher</span>
 
 <span class='fu'>caesar</span>(<span class='st'>"Experience is the teacher of all things."</span>)</div><div class='output co'>#&gt; [1] "HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Experience is the teacher of all things."</div><div class='input'>
-<span class='fu'>caesar</span>(<span class='st'>"Veni, vidi, vici."</span>,  <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><div class='output co'>#&gt; [1] ",S1WKN9WRWKN9WQWL"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>",S1WKN9WRWKN9WQWL"</span>, <span class='kw'>distance</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Veni, vidi, vici."</div><div class='input'>
-<span class='fu'>caesar</span>(<span class='st'>"No one is so brave that he is not disturbed by something unexpected."</span>, <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>)</div><div class='output co'>#&gt; [1] "Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</span>,
-       <span class='kw'>distance</span> <span class='kw'>=</span> -<span class='fl'>12</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "No one is so brave that he is not disturbed by something unexpected."</div></pre>
+<span class='fu'>caesar</span>(<span class='st'>"Veni, vidi, vici."</span>,  <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>40</span>)</div><div class='output co'>#&gt; [1] ",S1WKN9WRWKN9WQWL"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>",S1WKN9WRWKN9WQWL"</span>, <span class='kw'>shift</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Veni, vidi, vici."</div><div class='input'>
+<span class='fu'>caesar</span>(<span class='st'>"No one is so brave that he is not disturbed by something unexpected."</span>, <span class='kw'>shift</span> <span class='kw'>=</span> -<span class='fl'>12</span>)</div><div class='output co'>#&gt; [1] "Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</div><div class='input'><span class='fu'>caesar</span>(<span class='st'>"Bc[cb:[,g[gc[{f]j:[h&gt;]h[&gt;:[,g[bch[;,ghif{:;[{m[gca:h&gt;,b&lt;[ib:ld:}h:;`"</span>,
+       <span class='kw'>shift</span> <span class='kw'>=</span> -<span class='fl'>12</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "No one is so brave that he is not disturbed by something unexpected."</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

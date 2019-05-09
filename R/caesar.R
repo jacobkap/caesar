@@ -3,7 +3,7 @@
 #'
 #' @param text
 #' String or vector of strings to be ciphered or deciphered.
-#' @param distance
+#' @param shift
 #' A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.
 #' @param decrypt
 #' If TRUE, (not default) deciphers the coded text.
@@ -19,62 +19,72 @@
 #' caesar("Experience is the teacher of all things.")
 #' caesar("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva", decrypt = TRUE)
 #'
-#' caesar("Veni, vidi, vici.",  distance = 40)
-#' caesar(",S1WKN9WRWKN9WQWL", distance = 40, decrypt = TRUE)
+#' caesar("Veni, vidi, vici.",  shift = 40)
+#' caesar(",S1WKN9WRWKN9WQWL", shift = 40, decrypt = TRUE)
 #'
-#' caesar("No one is so brave that he is not disturbed by something unexpected.", distance = -12)
+#' caesar("No one is so brave that he is not disturbed by something unexpected.", shift = -12)
 #' caesar("Bc[cb:[,g[gc[{f]j:[h>]h[>:[,g[bch[;,ghif{:;[{m[gca:h>,b<[ib:ld:}h:;`",
-#'        distance = -12, decrypt = TRUE)
-caesar <- function(text, distance = 3, decrypt = FALSE) {
+#'        shift = -12, decrypt = TRUE)
+caesar <- function(text,
+                   shift = 3,
+                   decrypt = FALSE) {
   if (!is.character(text)) {
     stop("text must be a string!")
   }
 
-  if (length(distance) != 1) {
-    stop("distance must be a single number!")
+  if (length(shift) != 1) {
+    stop("shift must be a single number!")
   }
 
-  if (!is.numeric(distance)) {
-    stop("distance must be a number!")
+  if (!is.numeric(shift)) {
+    stop("shift must be a number!")
   }
 
   text <- gsub('\\"', "\\'", text)
 
-  distance <- round(distance)
-  distance <- distance %% length(.alphabet$original)
+  shift <- round(shift)
+  shift <- shift %% length(.alphabet$original)
   .alphabet$number <- 1:nrow(.alphabet)
   .alphabet$cipher <- binhf::shift(.alphabet$original,
-                                   places = -distance)
+                                   places = -shift)
 
   text <- encrypt_decrypt(text, .alphabet, decrypt)
   return(text)
 }
 
-#' Encrypt and decrypt text using pseduorandom number generation based on the seed set.
+#' Encrypt and decrypt text using pseudorandom number generation based on the seed set.
 #'
 #' @param text
-#' String to be ciphered or deciphered
+#' String or vector of strings to be ciphered or deciphered.
 #' @param seed
 #' A single number to set the seed which will pseudorandomly rearrange
 #' the original characters
 #' @param decrypt
-#' If TRUE, deciphers coded text
+#' If TRUE (not default), deciphers the coded text.
 #'
 #' @return
 #' String of the ciphered/deciphered text
 #' @export
 #'
 #' @examples
-#' seed_cipher("As a rule, men worry more about what they can't see than about what they can.")
-#' seed_cipher("O8GdG@SfhEG9hUG*A@@nG9A@hGd:AS_G*Wd_G_WhnG)dUg_G8hhG_WdUGd:AS_G*Wd_G_WhnG)dUx", decrypt = TRUE)
+#' seed_cipher("Cowards die many times before their deaths")
+#' seed_cipher("'Ced<,#G,QhG$dXoG/Q$h#G+h(C<hG/0hQ<G,hd/0#",
+#'             decrypt = TRUE)
 #'
+#' seed_cipher("Men willingly believe what they wish.",
+#'              seed = 2354)
+#' seed_cipher("q39l*D66D9;6.l%36D3d3l*<p4l4<3.l*D <h",
+#'             seed = 2354,
+#'             decrypt = TRUE)
 #'
-#' seed_cipher("Men willingly believe what they wish.", seed = 2354)
-#' seed_cipher("q39l*D66D9;6.l%36D3d3l*<p4l4<3.l*D <h", seed = 2354, decrypt = TRUE)
-#'
-#' seed_cipher("What we wish, we readily believe, and what we ourselves think, we imagine others think also.", seed = -100)
-#' seed_cipher("}Nf,&3C&3etN4&3C&vCf>eB8&xCBeC]C4&fj>&3Nf,&3C&P9vtCB]Ct&,Nej:4&3C&e-fZejC&P,NCvt&,Nej:&fBtP ", seed = -100, decrypt = TRUE)
-seed_cipher <- function(text, seed = 64, decrypt = FALSE) {
+#' seed_cipher("the valiant never taste of death but once.",
+#'             seed = -100)
+#' seed_cipher("*QDc3f>efk*ckD3D{c*fu*DcS'c]Df*Qcy%*cSkoDi",
+#'             seed = -100,
+#'             decrypt = TRUE)
+seed_cipher <- function(text,
+                        seed = 64,
+                        decrypt = FALSE) {
   if (!is.character(text)) {
     stop("text must be a string!")
   }
@@ -89,7 +99,7 @@ seed_cipher <- function(text, seed = 64, decrypt = FALSE) {
 
   text <- gsub('\\"', "\\'", text)
 
-  set.seed(seed)
+  base::set.seed(seed)
   .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
                                                 nrow(.alphabet),
                                                 replace = FALSE)]

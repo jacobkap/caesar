@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Encrypt and decrypt text using pseduorandom number generation based on the seed set. — seed_cipher • caesar</title>
+<title>Encrypt and decrypt text using pseudorandom number generation based on the seed set. — seed_cipher • caesar</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Encrypt and decrypt text using pseduorandom number generation based on the seed set. — seed_cipher" />
+<meta property="og:title" content="Encrypt and decrypt text using pseudorandom number generation based on the seed set. — seed_cipher" />
 
-<meta property="og:description" content="Encrypt and decrypt text using pseduorandom number generation based on the seed set." />
+<meta property="og:description" content="Encrypt and decrypt text using pseudorandom number generation based on the seed set." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">caesar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -77,6 +77,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Encrypting-and-decrypting-text.html">Encrypting and decrypting text</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -102,14 +114,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Encrypt and decrypt text using pseduorandom number generation based on the seed set.</h1>
+    <h1>Encrypt and decrypt text using pseudorandom number generation based on the seed set.</h1>
     <small class="dont-index">Source: <a href='https://github.com/jacobkap/caesar/blob/master/R/caesar.R'><code>R/caesar.R</code></a></small>
     <div class="hidden name"><code>seed_cipher.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Encrypt and decrypt text using pseduorandom number generation based on the seed set.</p>
+    <p>Encrypt and decrypt text using pseudorandom number generation based on the seed set.</p>
     
     </div>
 
@@ -120,7 +132,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>text</th>
-      <td><p>String to be ciphered or deciphered</p></td>
+      <td><p>String or vector of strings to be ciphered or deciphered.</p></td>
     </tr>
     <tr>
       <th>seed</th>
@@ -129,7 +141,7 @@ the original characters</p></td>
     </tr>
     <tr>
       <th>decrypt</th>
-      <td><p>If TRUE, deciphers coded text</p></td>
+      <td><p>If TRUE (not default), deciphers the coded text.</p></td>
     </tr>
     </table>
     
@@ -139,10 +151,16 @@ the original characters</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"As a rule, men worry more about what they can't see than about what they can."</span>)</div><div class='output co'>#&gt; [1] "R#GdG&lt;VfhbG$hXGeC&lt;&lt;oG$C&lt;hGd+CV/Ge0d/G/0hoG dXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"O8GdG@SfhEG9hUG*A@nG9A@hGd:AS_G*Wd_G_WhnG)dUg_G8hhG_WdUGd:AS_G*Wd_G_WhnG)dUx"</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "${ a 3Ilek &lt;ez q}3D &lt;}3e a&gt;}I. qja. .jeD Xaz'. {ee .jaz a&gt;}I. qja. .jeD XazK"</div><div class='input'>
-
-<span class='fu'>seed_cipher</span>(<span class='st'>"Men willingly believe what they wish."</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>)</div><div class='output co'>#&gt; [1] ",7$HwF!!F$`!]H)7!F7d7Hw}q9H9}7]HwF^}B"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"q39l*D66D9;6.l%36D3d3l*&lt;p4l4&lt;3.l*D &lt;h"</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "a%t&gt;$^{{^t+{(&gt;q%{^%v%&gt;$@2R&gt;R@%(&gt;$^3@W"</div><div class='input'>
-<span class='fu'>seed_cipher</span>(<span class='st'>"What we wish, we readily believe, and what we ourselves think, we imagine others think also."</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>)</div><div class='output co'>#&gt; [1] "FQf*c8Dc8euQ c8Dc{Df]e&gt;$cyD&gt;eD3D cfk]c8Qf*c8DcS%{uD&gt;3Duc*Qek= c8Dce-f2ekDcS*QD{uc*Qek=cf&gt;uSi"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"}Nf,&amp;3C&amp;3etN4&amp;3C&amp;vCf&gt;eB8&amp;xCBeC]C4&amp;fj&gt;&amp;3Nf,&amp;3C&amp;P9vtCB]Ct&amp;,Nej:4&amp;3C&amp;e-fZejC&amp;P,NCvt&amp;,Nej:&amp;fBtP "</span>, <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>, <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "O3aD@v^@vix3Z@v^@M^aliQw@p^Qi^d^Z@aXl@v3aD@v^@KLMx^Qd^x@D3iX#Z@v^@ima)iX^@KD3^Mx@D3iX#@aQxK,"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"Cowards die many times before their deaths"</span>)</div><div class='output co'>#&gt; [1] "'Ced&lt;,#G,QhG$dXoG/Q$h#G+h(C&lt;hG/0hQ&lt;G,hd/0#"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"'Ced&lt;,#G,QhG$dXoG/Q$h#G+h(C&lt;hG/0hQ&lt;G,hd/0#"</span>,
+            <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Cowards die many times before their deaths"</div><div class='input'>
+<span class='fu'>seed_cipher</span>(<span class='st'>"Men willingly believe what they wish."</span>,
+             <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>)</div><div class='output co'>#&gt; [1] ",7$HwF!!F$`!]H)7!F7d7Hw}q9H9}7]HwF^}B"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"q39l*D66D9;6.l%36D3d3l*&lt;p4l4&lt;3.l*D &lt;h"</span>,
+            <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>2354</span>,
+            <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "a%t&gt;$^{{^t+{(&gt;q%{^%v%&gt;$@2R&gt;R@%(&gt;$^3@W"</div><div class='input'>
+<span class='fu'>seed_cipher</span>(<span class='st'>"the valiant never taste of death but once."</span>,
+            <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>)</div><div class='output co'>#&gt; [1] "*QDc3f&gt;efk*ckD3D{c*fu*DcS'c]Df*Qcy%*cSkoDi"</div><div class='input'><span class='fu'>seed_cipher</span>(<span class='st'>"*QDc3f&gt;efk*ckD3D{c*fu*DcS'c]Df*Qcy%*cSkoDi"</span>,
+            <span class='kw'>seed</span> <span class='kw'>=</span> -<span class='fl'>100</span>,
+            <span class='kw'>decrypt</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "the valiant never taste of death but once."</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
