@@ -7,3 +7,4 @@
 ^LICENSE\.md$
 ^docs$
 ^cran-comments\.md$
+^CRAN-RELEASE$

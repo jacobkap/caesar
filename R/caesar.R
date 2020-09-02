@@ -28,8 +28,8 @@
 caesar <- function(text,
                    shift = 3,
                    decrypt = FALSE) {
-  if (!is.character(text) || length(text) != 1) {
-    stop("text must be a single string!")
+  if (!is.character(text)) {
+    stop("text must be a string or vector of strings!")
   }
 
   if (length(shift) != 1) {
@@ -43,12 +43,13 @@ caesar <- function(text,
   text <- gsub('\\"', "\\'", text)
 
   shift <- round(shift)
-  shift <- shift %% length(.alphabet$original)
-  .alphabet$number <- 1:nrow(.alphabet)
-  .alphabet$cipher <- binhf::shift(.alphabet$original,
+  shift <- shift %% length(alphabet$original)
+  alphabet$number <- 1:nrow(alphabet)
+  alphabet$cipher <- binhf::shift(alphabet$original,
                                    places = -shift)
 
-  text <- encrypt_decrypt(text, .alphabet, decrypt)
+  text <- sapply(text, encrypt_decrypt, .alphabet = alphabet, decrypt = decrypt, simplify = TRUE)
+  text <- unname(text)
   return(text)
 }
 
@@ -85,8 +86,8 @@ caesar <- function(text,
 seed_cipher <- function(text,
                         seed = 64,
                         decrypt = FALSE) {
-  if (!is.character(text) || length(text) != 1) {
-    stop("text must be a single string!")
+  if (!is.character(text)) {
+    stop("text must be a string or vector of strings!")
   }
 
   if (length(seed) != 1) {
@@ -103,13 +104,14 @@ seed_cipher <- function(text,
   # version user is using.
   suppressWarnings(base::RNGversion("3.5.3"))
   base::set.seed(seed)
-  .alphabet$cipher <- .alphabet$original[sample(1:nrow(.alphabet),
-                                                nrow(.alphabet),
+  alphabet$cipher <- alphabet$original[sample(1:nrow(alphabet),
+                                                nrow(alphabet),
                                                 replace = FALSE)]
 
 
-  text <- encrypt_decrypt(text, .alphabet, decrypt)
+  text <- sapply(text, encrypt_decrypt, .alphabet = alphabet, decrypt = decrypt, simplify = TRUE)
+  text <- unname(text)
+
   return(text)
 }
-
 

@@ -78,47 +78,39 @@ test_that("caesar - returns errors", {
   # shift isn't a string
   expect_error(caesar(2,
                       shift = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(as.Date("2011-01-22"),
                       shift = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(mtcars,
                       shift = 2,
                       decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(as.factor(letters),
                       shift = 2,
                       decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(2:10,
                       shift = 2,
                       decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
 
   expect_error(caesar(TRUE,
                       shift = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(FALSE,
                       shift = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(NULL,
                       shift = 2,
                       decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(caesar(NA,
                       shift = 2,
                       decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
 
 
-  expect_error(caesar(letters,
-                      shift = 2,
-                      decrypt = TRUE),
-               "text must be a single string!")
-  expect_error(caesar(c("hello", "world"),
-                      shift = 2,
-                      decrypt = TRUE),
-               "text must be a single string!")
 
 
 
@@ -187,46 +179,35 @@ test_that("seed - returns errors", {
   # seed isn't a single string
   expect_error(seed_cipher(2,
                            seed = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(seed_cipher(as.Date("2011-01-22"),
                            seed = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(seed_cipher(mtcars,
                            seed = 2,
                            decrypt = TRUE),
-               "text must be a single string!")
-  expect_error(seed_cipher(as.factor(letters),
-                           seed = 2,
-                           decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
+
   expect_error(seed_cipher(2:10,
                            seed = 2,
                            decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
 
   expect_error(seed_cipher(TRUE,
                            seed = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(seed_cipher(FALSE,
                            seed = 2),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(seed_cipher(NULL,
                            seed = 2,
                            decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
   expect_error(seed_cipher(NA,
                            seed = 2,
                            decrypt = TRUE),
-               "text must be a single string!")
+               "text must be a string or vector of strings!")
 
-  expect_error(seed_cipher(letters,
-                           seed = 2,
-                           decrypt = TRUE),
-               "text must be a single string!")
-  expect_error(seed_cipher(c("hello", "world"),
-                           seed = 2,
-                           decrypt = TRUE),
-               "text must be a single string!")
 
 
 

@@ -4,6 +4,11 @@ test_that("Caesar encryption works", {
   expect_equal(caesar("Experience is the teacher of all things.",
                       shift = 3),
                "HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva")
+  expect_equal(caesar(c("Experience is the teacher of all things.",
+                        "The best way of avenging thyself is not to become like the wrong doer."),
+                      shift = 3),
+               c("HAshulhqfhclvcwkhcwhdfkhucricdoocwklqjva",
+                 "WkhcehvwczdBcricdyhqjlqjcwkBvhoiclvcqrwcwrcehfrphcolnhcwkhczurqjcgrhua"))
   expect_equal(caesar("Experience is the teacher of all things.",
                       shift = 0),
                "Experience is the teacher of all things.")

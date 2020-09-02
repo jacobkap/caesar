@@ -24,6 +24,12 @@ The Caesar cipher is an ancient cipher which is made by shifting the letters of 
  caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.")
 ```
 
+You can do it for a vector of strings.
+
+```{r echo=TRUE}
+ caesar::caesar(text = c("As a rule, men worry more about what they can't see than about what they can.", "The best way of avenging thyself is not to become like the wrong doer."))
+```
+
 You can set the shift yourself as one of the optional parameters. This can be any whole number (positive or negative). If you do decide to change the default value of the `shift` parameter (which you should to make it secure), make sure not to forget the value you set.
 
 ```{r echo=TRUE}

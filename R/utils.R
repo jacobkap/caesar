@@ -1,4 +1,4 @@
-.alphabet <- data.frame(original = c(letters,
+alphabet <- data.frame(original = c(letters,
                                     LETTERS,
                                     0:9,
                                     "!",
