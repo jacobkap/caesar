@@ -4,8 +4,6 @@
 Status](https://ci.appveyor.com/api/projects/status/github/jacobkap/caesar?branch=master&svg=true)](https://ci.appveyor.com/project/jacobkap/caesar)
 [![Build
 Status](https://travis-ci.org/jacobkap/caesar.svg?branch=master)](https://travis-ci.org/jacobkap/caesar)
-[![Coverage
-status](https://codecov.io/gh/jacobkap/caesar/branch/master/graph/badge.svg)](https://codecov.io/github/jacobkap/caesar?branch=master)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/caesar?color=blue)](https://cran.r-project.org/package=caesar)
 
 ## Overview
@@ -50,8 +48,7 @@ The Caesar cipher is an ancient cipher which is made by shifting the
 letters of the alphabet by a set number. So a shift of -3, for example,
 would move each letter to the left by 3, such that A would become X and
 D would become A. For this package it also includes numbers and
-punctuation but the concept is the
-same.
+punctuation but the concept is the same.
 
 ``` r
  caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.")
@@ -62,8 +59,7 @@ same.
 You can set the shift yourself as one of the optional parameters. This
 can be any whole number (positive or negative). If you do decide to
 change the default value of the `shift` parameter (which you should to
-make it secure), make sure not to forget the value you
-set.
+make it secure), make sure not to forget the value you set.
 
 ``` r
  caesar::caesar(text = "As a rule, men worry more about what they can't see than about what they can.", 
@@ -72,8 +68,7 @@ set.
 
     ## [1] "rj};}ilc>[}d>e}nfiip}dfi>};:flk}n/;k}k/>p}';e=k}j>>}k/;e};:flk}n/;k}k/>p}';e]"
 
-To decrypt the text change the parameter `decrypt` to
-TRUE.
+To decrypt the text change the parameter `decrypt` to TRUE.
 
 ``` r
  caesar::caesar(text = "Dvcdcuxoh cphqczruuBcpruhcderxwczkdwcwkhBcfdq,wcvhhcwkdqcderxwczkdwcwkhBcfdqa",
@@ -82,8 +77,7 @@ TRUE.
 
     ## [1] "As a rule, men worry more about what they can't see than about what they can."
 
-Make sure the shift value is the same as it was when
-encrypted.
+Make sure the shift value is the same as it was when encrypted.
 
 ``` r
  caesar::caesar(text = "rj};}ilc>[}d>e}nfiip}dfi>};:flk}n/;k}k/>p}';e=k}j>>}k/;e};:flk}n/;k}k/>p}';e]", 
@@ -96,8 +90,7 @@ encrypted.
 # seed\_cipher()
 
 This method randomizes the alphabet based on a seed you set, making it
-far more secure than the Caesar
-cipher.
+far more secure than the Caesar cipher.
 
 ``` r
  caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.")
@@ -108,8 +101,7 @@ cipher.
 You can set the seed yourself as one of the optional parameters. This
 can be any whole number (positive or negative). If you do decide to
 change the default value of the `seed` parameter (which you should to
-make it secure), make sure not to forget the value you
-set.
+make it secure), make sure not to forget the value you set.
 
 ``` r
  caesar::seed_cipher(text = "As a rule, men worry more about what they can't see than about what they can.", 
@@ -118,8 +110,7 @@ set.
 
     ## [1] "Eucfc{%>D c-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki"
 
-To decrypt the text change the parameter `decrypt` to
-TRUE.
+To decrypt the text change the parameter `decrypt` to TRUE.
 
 ``` r
  caesar::seed_cipher(text = "R#GdG<VfhbG$hXGeC<<oG$C<hGd+CV/Ge0d/G/0hoGdXg/G#hhG/0dXGd+CV/Ge0d/G/0hoG dX_",
@@ -128,8 +119,7 @@ TRUE.
 
     ## [1] "As a rule, men worry more about what they an't see than about what they can."
 
-Make sure the seed value is the same as it was when
-encrypted.
+Make sure the seed value is the same as it was when encrypted.
 
 ``` r
  caesar::seed_cipher(text = "Eucfc{%>Dc-Dkc8S{{$c-S{DcfyS%*c8Qf*c*QD$cofkR*cuDDc*QfkcfyS%*c8Qf*c*QD$cofki", 
