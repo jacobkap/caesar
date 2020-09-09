@@ -34,6 +34,13 @@ alphabet <- data.frame(original = c(letters,
 
 
 encrypt_decrypt <- function(text, .alphabet, decrypt) {
+  if (is.na(text)) {
+    return(NA)
+  }
+  if (is.null(text)) {
+    return(NA)
+  }
+
   if (decrypt == FALSE) {
     for (i in 1:nchar(text)) {
       index_num <- which(substr(text, i, i) == .alphabet$original)

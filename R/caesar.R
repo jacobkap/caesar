@@ -2,7 +2,7 @@
 #' Encrypt and decrypt text using the Caesar cipher.
 #'
 #' @param text
-#' String to be ciphered or deciphered.
+#' String or vector of strings (numeric input will be coerced to string) to be ciphered or deciphered.
 #' @param shift
 #' A single whole number for how far to move the characters in the direction (positive or negative) you choose. If not a whole number, it will be rounded to nearest whole number.
 #' @param decrypt
@@ -28,7 +28,7 @@
 caesar <- function(text,
                    shift = 3,
                    decrypt = FALSE) {
-  if (!is.character(text)) {
+  if (!is.character(text) & !is.numeric(text)) {
     stop("text must be a string or vector of strings!")
   }
 
@@ -86,7 +86,7 @@ caesar <- function(text,
 seed_cipher <- function(text,
                         seed = 64,
                         decrypt = FALSE) {
-  if (!is.character(text)) {
+  if (!is.character(text) & !is.numeric(text)) {
     stop("text must be a string or vector of strings!")
   }
 
@@ -109,7 +109,10 @@ seed_cipher <- function(text,
                                                 replace = FALSE)]
 
 
-  text <- sapply(text, encrypt_decrypt, .alphabet = alphabet, decrypt = decrypt, simplify = TRUE)
+  text <- sapply(text,
+                 encrypt_decrypt,
+                 .alphabet = alphabet,
+                 decrypt = decrypt)
   text <- unname(text)
 
   return(text)
